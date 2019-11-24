@@ -20,7 +20,6 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import com.trach.herobannerlib.indicators.IndicatorsGroup
-import java.lang.ref.WeakReference
 
 class HeroBanner : FrameLayout {
 
