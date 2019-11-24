@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HeroBanner">
+        <attr name="is_auto_scroll" format="boolean"/>
+        <attr name="is_infinite" format="boolean"/>
+        <attr name="is_show_indicator" format="boolean"/>
+        <attr name="indicator_size" format="dimension"/>
+        <attr name="interval" format="integer"/>
+    </declare-styleable>
+</resources>
