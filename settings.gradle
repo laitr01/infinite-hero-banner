@@ -1,1 +1,1 @@
-include ':app', ':herobannerlib'
+include ':sample', ':herobannerlib'

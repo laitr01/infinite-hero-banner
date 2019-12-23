@@ -5,13 +5,10 @@
 package com.trach.herobanner
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
-import com.trach.herobannerlib.viewholders.HeroBannerViewHolder
 
 
 class ViewPagerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -47,8 +44,7 @@ class ViewPagerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     class ViewHolder(val imageView: ImageView): RecyclerView.ViewHolder(imageView) {
         fun bind(url: String){
-           // Picasso.get().load("http://i.imgur.com/DvpvklR.png").into(imageView)
-            Glide.with(imageView.context).load("http://i.imgur.com/DvpvklR.png").into(imageView)
+           Picasso.get().load("http://i.imgur.com/DvpvklR.png").into(imageView)
         }
     }
 }
