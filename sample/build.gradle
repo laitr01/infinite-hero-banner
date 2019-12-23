@@ -29,7 +29,6 @@ dependencies {
     api project(path: ':herobannerlib')
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
-    implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta3"
+    implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta4"
     implementation "androidx.viewpager2:viewpager2:1.0.0"
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
 }
