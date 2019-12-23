@@ -57,13 +57,19 @@ repositories {
     jcenter()
 }
 
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'infinite-hero-banner'
+subprojects {
+    tasks.withType(Javadoc).all {
+        enabled= false
+    }
+}
 
-    publishedGroupId = 'com.trach.herobanner'
+ext {
+    bintrayRepo = 'infinite-hero-banner'
+    bintrayName = 'com.trach.herobannerlib'
+
+    publishedGroupId = 'com.trach.herobannerlib'
     libraryName = 'infinite-hero-banner'
-    artifact = 'infinite-hero-banner'
+    artifact = 'herobannerlib'
 
     libraryDescription = 'A simple, lightweight, infiniting hero banner is using viewpager 2.'
 
@@ -81,7 +87,7 @@ ext {
     allLicenses = ["Apache-2.0"]
 }
 
-group = 'com.trach.herobanner'
+group = 'com.trach.herobannerlib'
 version = '1.0'
 
 install {
