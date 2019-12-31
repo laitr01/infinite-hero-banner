@@ -131,3 +131,11 @@ class MainActivity : AppCompatActivity() {
 ## Duration for auto scrolling
 
 `app:interval="3000"`
+
+# What features will we develop in the future?
+
+## Add many type of indicators
+## Add animation for indicators
+## Banner slide tranformation
+
+
