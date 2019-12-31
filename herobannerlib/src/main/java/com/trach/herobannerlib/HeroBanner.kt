@@ -40,7 +40,11 @@ class HeroBanner : FrameLayout {
         initViews(attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         initViews(attrs)
     }
 
@@ -50,8 +54,18 @@ class HeroBanner : FrameLayout {
             config = Config.Builder()
                 .infinite(typedArray.getBoolean(R.styleable.HeroBanner_is_infinite, false))
                 .autoScroll(typedArray.getBoolean(R.styleable.HeroBanner_is_auto_scroll, false))
-                .indicatorSize(typedArray.getDimensionPixelSize(R.styleable.HeroBanner_indicator_size, 12))
-                .showIndicator(typedArray.getBoolean(R.styleable.HeroBanner_is_show_indicator, false))
+                .indicatorSize(
+                    typedArray.getDimensionPixelSize(
+                        R.styleable.HeroBanner_indicator_size,
+                        12
+                    )
+                )
+                .showIndicator(
+                    typedArray.getBoolean(
+                        R.styleable.HeroBanner_is_show_indicator,
+                        false
+                    )
+                )
                 .interval(typedArray.getInt(R.styleable.HeroBanner_interval, 1500).toLong())
                 .build(context)
             typedArray.recycle()
@@ -245,7 +259,9 @@ class HeroBanner : FrameLayout {
         config = config.newBuilder()
             .infinite(checked)
             .build(context)
-        setupViews()
+        adapter?.isInfinite = checked
+        adapter?.notifyDataSetChanged()
+        resetAutoScroll()
     }
 
     fun isAutoScroll(isAutoScroll: Boolean) {
@@ -259,7 +275,8 @@ class HeroBanner : FrameLayout {
         config = config.newBuilder()
             .showIndicator(isShow)
             .build(context)
-        setupViews()
+        indicatorsGroup?.visibility = if (isShow) View.VISIBLE else View.GONE
+        invalidate()
     }
 
     companion object {

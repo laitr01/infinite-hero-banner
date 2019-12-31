@@ -16,11 +16,11 @@ import android.util.Log
 
 abstract class HeroBannerAdapter<T> : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    var isInfinite = true
-    var canInfinite = true
-    var imageViewLayoutParams: ViewGroup.LayoutParams? = null
-
     private val itemList = mutableListOf<T>()
+    private var canInfinite = true
+    var imageViewLayoutParams: ViewGroup.LayoutParams? = null
+    var isInfinite = true
+
 
     fun getListCount() = itemList.size
 
