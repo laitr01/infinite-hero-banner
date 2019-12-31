@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="standard_margin">8dp</dimen>
+    <dimen name="standard_margin_x2">16dp</dimen>
+    <dimen name="banner_settings_margin">20dp</dimen>
+    <dimen name="max_indicator_size">20dp</dimen>
+</resources>

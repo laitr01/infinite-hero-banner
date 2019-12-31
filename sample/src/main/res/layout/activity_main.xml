@@ -16,9 +16,110 @@
             app:is_show_indicator="true"
             app:indicator_size="10dp"
             app:interval="3000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"/>
 
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/heroBanner"
+            android:orientation="vertical"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/heroBanner">
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="16dp"
+                android:background="#ddd"/>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/standard_margin"
+                android:layout_marginLeft="@dimen/banner_settings_margin"
+                android:layout_marginRight="@dimen/banner_settings_margin">
+
+            <TextView
+                    android:id="@+id/text_label_interval"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/label_interval"
+                    android:layout_alignParentLeft="true"/>
+
+            <SeekBar
+                    android:id="@+id/seekBarInterval"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/text_label_interval"
+                    android:layout_toRightOf="@id/text_label_interval"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/standard_margin"
+                android:layout_marginLeft="@dimen/banner_settings_margin"
+                android:layout_marginRight="@dimen/banner_settings_margin">
+
+            <TextView
+                    android:id="@+id/text_label_indicator_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="@dimen/standard_margin"
+                    android:text="@string/label_indicator_size"
+                    android:layout_alignParentLeft="true"/>
+
+            <SeekBar
+                    android:id="@+id/seekBarIndicatorSize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/text_label_indicator_size"
+                    android:layout_toRightOf="@id/text_label_indicator_size"/>
+
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/isInfinite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/standard_margin"
+                android:layout_marginLeft="@dimen/banner_settings_margin"
+                android:layout_marginRight="@dimen/banner_settings_margin"
+                android:text="@string/label_loop_slides"
+                android:textColor="@color/holo_gray"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/checkbox_animate_indicators"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/standard_margin"
+                android:layout_marginLeft="@dimen/banner_settings_margin"
+                android:layout_marginRight="@dimen/banner_settings_margin"
+                android:text="@string/label_animate_indicators"
+
+                android:textColor="@color/holo_gray"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/checkbox_hide_indicators"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/banner_settings_margin"
+                android:layout_marginRight="@dimen/banner_settings_margin"
+                android:text="@string/label_hide_indicators"
+                android:textColor="@color/holo_gray"/>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,8 +3,9 @@ package com.trach.herobanner
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.trach.herobannerlib.HeroBanner
-import com.trach.herobannerlib.services.ImageLoadingService
 import kotlinx.android.synthetic.main.activity_main.*
+import androidx.appcompat.widget.SwitchCompat
+import android.widget.SeekBar
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
             ))
         }
         heroBanner.setAdapter(adapter)
+
+        setupSettingsUi()
     }
 
     override fun onPause() {
@@ -30,5 +33,46 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         heroBanner.startTimer()
+    }
+
+    private fun setupSettingsUi() {
+        seekBarInterval.max = 10000
+        seekBarInterval.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, time: Int, changed: Boolean) {
+                if (changed) {
+                    heroBanner.setInterval(time.toLong())
+                }
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar) { }
+            override fun onStopTrackingTouch(seekBar: SeekBar) { }
+        })
+        seekBarIndicatorSize.max = resources.getDimensionPixelSize(R.dimen.max_indicator_size)
+        seekBarIndicatorSize.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, i: Int, changed: Boolean) {
+                if (changed) {
+                    heroBanner.setIndicatorSize(i)
+                }
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+
+            }
+        })
+
+        isInfinite.isChecked = true
+        isInfinite.setOnCheckedChangeListener { _, b -> heroBanner.isInfinite(b) }
+
+        val hideIndicatorsSwitch = findViewById<SwitchCompat>(R.id.checkbox_hide_indicators)
+        hideIndicatorsSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                heroBanner.hideIndicators()
+            } else {
+                heroBanner.showIndicators()
+            }
+        }
     }
 }
