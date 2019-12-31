@@ -1,7 +1,7 @@
 # infinite-hero-banner
 A simple, lightweight, infiniting hero banner is using viewpager 2.
 
-![Sample](https://i.ibb.co/cLW0PXC/80842295-600981997348032-1933579098244775936-n.jpg)
+![Sample](<img src="https://i.ibb.co/cLW0PXC/80842295-600981997348032-1933579098244775936-n.jpg" height=50% width=50% />)
 
 # How to use?
 
