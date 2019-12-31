@@ -15,9 +15,9 @@ class MainActivity : AppCompatActivity() {
         val adapter = BannerAdapter().apply {
             setItemList(
                 listOf(
-                    Banner("https://assets.materialup.com/uploads/dcc07ea4-845a-463b-b5f0-4696574da5ed/preview.jpg"),
-                    Banner("https://assets.materialup.com/uploads/20ded50d-cc85-4e72-9ce3-452671cf7a6d/preview.jpg"),
-                    Banner("https://assets.materialup.com/uploads/76d63bbc-54a1-450a-a462-d90056be881b/preview.png")
+                    Banner("https://static.chotot.com.vn/storage/admin-centre/buyer_collection_y_homepage_banner/buyer_collection_y_homepage_banner_1577353101918.jpg"),
+                    Banner("https://static.chotot.com.vn/storage/admin-centre/buyer_collection_y_homepage_banner/buyer_collection_y_homepage_banner_1577355752388.jpg"),
+                    Banner("https://static.chotot.com.vn/storage/admin-centre/buyer_collection_y_homepage_banner/buyer_collection_y_homepage_banner_1577353197254.jpg")
                 )
             )
         }

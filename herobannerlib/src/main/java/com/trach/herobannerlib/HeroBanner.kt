@@ -252,7 +252,7 @@ class HeroBanner : FrameLayout {
         config = config.newBuilder()
             .autoScroll(isAutoScroll)
             .build(context)
-        setupViews()
+        resetAutoScroll()
     }
 
     fun showIndicators(isShow: Boolean) {

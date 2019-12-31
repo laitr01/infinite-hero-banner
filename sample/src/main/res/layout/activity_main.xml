@@ -14,7 +14,7 @@
             app:is_auto_scroll="true"
             app:is_infinite="true"
             app:is_show_indicator="true"
-            app:indicator_size="5dp"
+            app:indicator_size="10dp"
             app:interval="3000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
