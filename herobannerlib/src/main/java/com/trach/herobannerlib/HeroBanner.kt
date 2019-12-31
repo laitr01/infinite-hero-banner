@@ -115,16 +115,15 @@ class HeroBanner : FrameLayout {
                 viewPager2.isNestedScrollingEnabled = false
             }
 
-            adapter.setItemTouchListener(object : View.OnTouchListener {
-                override fun onTouch(v: View, event: MotionEvent): Boolean {
-                    if (event.action == MotionEvent.ACTION_DOWN) {
-                        stopTimer()
-                    } else if (event.action == MotionEvent.ACTION_CANCEL || event.action == MotionEvent.ACTION_UP) {
-                        startTimer()
-                    }
-                    return false
+            adapter.setItemTouchListener(OnTouchListener { _, event ->
+                if (event.action == MotionEvent.ACTION_DOWN) {
+                    stopTimer()
+                } else if (event.action == MotionEvent.ACTION_CANCEL || event.action == MotionEvent.ACTION_UP) {
+                    startTimer()
                 }
+                false
             })
+
             viewPager2.adapter = adapter
 
             if (config.isInfinite) {
@@ -138,6 +137,32 @@ class HeroBanner : FrameLayout {
                 indicatorsGroup!!.setIndicators(adapter.getListCount())
                 indicatorsGroup!!.onIndicatorChange(0)
             }
+        }
+    }
+
+    @Suppress("DEPRECATION")
+    private fun refreshIndicators() {
+        indicatorsGroup
+            ?: throw IllegalStateException("Indicators group must be not null!")
+        val adapter = adapter
+            ?: throw IllegalStateException("Adapter must be not null!")
+
+        if (adapter.getListCount() > 1) {
+            if (indexOfChild(indicatorsGroup) != -1) {
+                removeView(indicatorsGroup)
+            }
+
+            indicatorsGroup = IndicatorsGroup(
+                context,
+                resources.getDrawable(R.drawable.indicator_circle_selected),
+                resources.getDrawable(R.drawable.indicator_circle_unselected),
+                config.indicatorSize
+            )
+            addView(indicatorsGroup)
+            indicatorsGroup?.setIndicators(adapter.getListCount())
+            indicatorsGroup?.onIndicatorChange(0)
+
+            invalidate()
         }
     }
 
@@ -177,7 +202,7 @@ class HeroBanner : FrameLayout {
             (context as? Activity)?.runOnUiThread {
                 val itemCount = viewPager2.adapter?.itemCount ?: 0
                 if (viewPager2.adapter == null || !config.isAutoScroll ||
-                    itemCount < 2 && HeroBanner.imageLoadingService != null
+                    itemCount < 2 && imageLoadingService != null
                 ) return@runOnUiThread
 
                 if (!config.isInfinite && itemCount - 1 == currentPagePosition) {
@@ -197,6 +222,11 @@ class HeroBanner : FrameLayout {
         }
     }
 
+    private fun resetAutoScroll() {
+        stopTimer()
+        startTimer()
+    }
+
     fun setInterval(interval: Long) {
         config = config.newBuilder()
             .interval(interval)
@@ -204,9 +234,32 @@ class HeroBanner : FrameLayout {
         resetAutoScroll()
     }
 
-    private fun resetAutoScroll() {
-        stopTimer()
-        startTimer()
+    fun setIndicatorSize(size: Int) {
+        config = config.newBuilder()
+            .indicatorSize(size)
+            .build(context)
+        refreshIndicators()
+    }
+
+    fun isInfinite(checked: Boolean) {
+        config = config.newBuilder()
+            .infinite(checked)
+            .build(context)
+        setupViews()
+    }
+
+    fun isAutoScroll(isAutoScroll: Boolean) {
+        config = config.newBuilder()
+            .autoScroll(isAutoScroll)
+            .build(context)
+        setupViews()
+    }
+
+    fun showIndicators(isShow: Boolean) {
+        config = config.newBuilder()
+            .showIndicator(isShow)
+            .build(context)
+        setupViews()
     }
 
     companion object {
