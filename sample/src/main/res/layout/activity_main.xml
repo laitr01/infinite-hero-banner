@@ -14,7 +14,7 @@
             app:is_auto_scroll="true"
             app:is_infinite="true"
             app:is_show_indicator="true"
-            app:indicator_size="10dp"
+            app:indicator_size="5dp"
             app:interval="3000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -98,22 +98,22 @@
                 android:layout_marginBottom="@dimen/standard_margin"
                 android:layout_marginLeft="@dimen/banner_settings_margin"
                 android:layout_marginRight="@dimen/banner_settings_margin"
-                android:text="@string/label_loop_slides"
+                android:text="@string/label_infinite"
                 android:textColor="@color/holo_gray"/>
 
         <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/checkbox_animate_indicators"
+                android:id="@+id/isAutoScroll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/standard_margin"
                 android:layout_marginLeft="@dimen/banner_settings_margin"
                 android:layout_marginRight="@dimen/banner_settings_margin"
-                android:text="@string/label_animate_indicators"
+                android:text="@string/label_auto_scroll"
 
                 android:textColor="@color/holo_gray"/>
 
         <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/checkbox_hide_indicators"
+                android:id="@+id/hideIndicatorsSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/banner_settings_margin"

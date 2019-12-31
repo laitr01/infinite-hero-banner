@@ -2,7 +2,7 @@
     <string name="app_name">HeroBanner</string>
     <string name="label_interval">Interval: </string>
     <string name="label_indicator_size">Indicator size: </string>
-    <string name="label_animate_indicators">Animate indicators: </string>
+    <string name="label_auto_scroll">Auto Scroll: </string>
     <string name="label_hide_indicators">Hide Indicators</string>
-    <string name="label_loop_slides">Loop slides: </string>
+    <string name="label_infinite">Infinite: </string>
 </resources>
