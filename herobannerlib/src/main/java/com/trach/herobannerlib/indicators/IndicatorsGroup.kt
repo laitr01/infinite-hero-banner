@@ -27,7 +27,7 @@ class IndicatorsGroup(
     private val indicatorShapes = ArrayList<HeroIndicator>()
 
     init {
-        orientation = LinearLayout.HORIZONTAL
+        orientation = HORIZONTAL
         val layoutParams =
             FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         layoutParams.gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
@@ -36,14 +36,15 @@ class IndicatorsGroup(
         setLayoutParams(layoutParams)
     }
 
-    fun setIndicators(slidesCount: Int) {
+    fun setIndicators(count: Int) {
         removeAllViews()
         indicatorShapes.clear()
-        for (i in 0 until slidesCount) {
+        for (i in 0 until count) {
             addIndicator()
         }
     }
 
+    @Suppress("DEPRECATION")
     private fun addIndicator() {
         val indicatorShape: HeroIndicator
         if (selectedSlideIndicator != null && unselectedSlideIndicator != null) {
