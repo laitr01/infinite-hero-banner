@@ -134,8 +134,8 @@ class MainActivity : AppCompatActivity() {
 
 # What features will we develop in the future?
 
-## Add many type of indicators
-## Add animation for indicators
-## Banner slide tranformation
+- [ ] Add many type of indicators
+- [ ] Add animation for indicators
+- [ ] Banner slide tranformation
 
 
